@@ -1,0 +1,10 @@
+#General
+* @Marfeel/providers-widget
+
+#Dependencies
+package.json @Marfeel/mozart @Marfeel/providers-widget
+package-lock.json @Marfeel/mozart @Marfeel/providers-widget
+.github/workflows/*.yml @Marfeel/mozart @Marfeel/ten
+
+#Documentation
+docs/ @Marfeel/pm

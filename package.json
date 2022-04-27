@@ -1,0 +1,86 @@
+{
+  "name": "@marfeel/widget-providers-WIDGET-NAME",
+  "version": "1.0.0",
+  "description": "WIDGET-NAME provider",
+  "main": "dist/index.cjs",
+  "config": {
+    "providerCliConfig": "@marfeel/widget-providers-config"
+  },
+  "browser": "dist/index.cjs",
+  "module": "dist/index.es2015.js",
+  "scripts": {
+    "start": "provider-cli start --configs-path=@marfeel/widget-providers-catalog --statics-path=./node_modules/@marfeel/widget-providers-frame/dist/runtime/,./dist",
+    "build": "provider-cli build -p && tsc --emitDeclarationOnly -d --outDir dist",
+    "build:dev": "provider-cli build && tsc --emitDeclarationOnly -d --outDir dist",
+    "test": "provider-cli test --configs-path=@marfeel/widget-providers-config",
+    "test:watch": "provider-cli test -w --configs-path=@marfeel/widget-providers-config",
+    "lint": "provider-cli lint"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Marfeel/widget-providers.git"
+  },
+  "keywords": [
+    "widget"
+  ],
+  "author": "marfeel",
+  "license": "UNLICENSED",
+  "files": [
+    "dist",
+    "schema/index.json"
+  ],
+  "types": "dist/index.d.ts",
+  "bugs": {
+    "url": "https://github.com/Marfeel/WIDGET-NAME/issues"
+  },
+  "homepage": "https://github.com/Marfeel/WIDGET-NAME#readme",
+  "eslintConfig": {
+    "parserOptions": {
+      "project": "./tsconfig.json"
+    },
+    "extends": [
+      "@marfeel/react-ts",
+      "@marfeel/jest"
+    ],
+    "globals": {
+      "process": true,
+      "__dirname": true
+    }
+  },
+  "eslintIgnore": [
+    "node_modules",
+    "jest.config.js",
+    "jest.setup.js",
+    "babel.config.js",
+    "dist",
+    "lib"
+  ],
+  "publishConfig": {
+    "registry": "https://repositories.mrf.io/nexus/repository/npm-internal/"
+  },
+  "peerDependencies": {
+    "@marfeel/react-amphtml": "^4.0.2-snapshot.477564579",
+    "react": "^16.12.0",
+    "react-dom": "^17.0.0",
+    "styled-components": "^5.0.0"
+  },
+  "devDependencies": {
+    "@marfeel/provider-cli": "^1.0.1-snapshot.685",
+    "@marfeel/react-amphtml": "^4.0.2-snapshot.477564579",
+    "@marfeel/widget-providers-catalog": "^1.0.1-snapshot.243",
+    "@marfeel/widget-providers-config": "^1.0.1-snapshot.244",
+    "@marfeel/widget-providers-frame": "^1.0.1-snapshot.242",
+    "@marfeel/widget-providers-storybook-amp-decorator": "^1.0.1-snapshot.242",
+    "@types/jest": "^26.0.0",
+    "@types/react": "^16.9.23",
+    "@types/react-dom": "^16.9.9",
+    "@types/styled-components": "^5.1.0",
+    "react": "^16.13.1",
+    "react-dom": "^16.12.0",
+    "styled-components": "^5.1.1"
+  },
+  "playgroundPublisher": {
+    "publishFolder": "playground-dist",
+    "publishName": "widget-providers-WIDGET-NAME"
+  }
+}

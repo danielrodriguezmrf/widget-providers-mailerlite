@@ -1,0 +1,13 @@
+{
+	"parserOptions": {
+		"project": "./tsconfig.json"
+	},
+	"extends": [
+		"@marfeel/react-ts",
+		"@marfeel/jest"
+	],
+	"globals": {
+		"process": true,
+		"__dirname": true
+	}
+}
