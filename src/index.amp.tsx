@@ -1,21 +1,9 @@
 import React, { ReactElement } from 'react';
-import styled from 'styled-components';
+import { AmpFrame } from '@marfeel/widget-providers-frame';
+import { MailerliteProps } from '.';
 
-import { WidgetNameProps } from '.';
-
-const Container = styled.div`
-	color: #fff;
-	font-family: "HelveticaNeue-Light", "Helvetica Neue Light", "Helvetica Neue", Helvetica, Arial, sans-serif;
-	font-size: 16px;
-	font-weight: 300;
-	padding: 2rem;
-	text-align: center;
-`;
-
-export default function WidgetName(props: WidgetNameProps): ReactElement {
+export default function Twitch(props: MailerliteProps): ReactElement {
 	return (
-		<Container>
-			AMP Version of the Widget.
-		</Container>
+		<AmpFrame component="widget-providers-mailerlite" props={ props } />
 	);
 }

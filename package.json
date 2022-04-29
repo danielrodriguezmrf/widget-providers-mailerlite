@@ -1,5 +1,5 @@
 {
-  "name": "@marfeel/widget-providers-WIDGET-NAME",
+  "name": "@marfeel/widget-providers-mailerlite",
   "version": "1.0.0",
   "description": "WIDGET-NAME provider",
   "main": "dist/index.cjs",
@@ -31,9 +31,9 @@
   ],
   "types": "dist/index.d.ts",
   "bugs": {
-    "url": "https://github.com/Marfeel/WIDGET-NAME/issues"
+    "url": "https://github.com/Marfeel/widget-providers-mailerlite/issues"
   },
-  "homepage": "https://github.com/Marfeel/WIDGET-NAME#readme",
+  "homepage": "https://github.com/Marfeel/widget-providers-mailerlite#readme",
   "eslintConfig": {
     "parserOptions": {
       "project": "./tsconfig.json"
@@ -81,6 +81,9 @@
   },
   "playgroundPublisher": {
     "publishFolder": "playground-dist",
-    "publishName": "widget-providers-WIDGET-NAME"
+    "publishName": "widget-providers-mailerlite"
+  },
+  "dependencies": {
+    "@marfeel/widget-providers-hooks": "^1.0.1-snapshot.244"
   }
 }

@@ -1,22 +1,37 @@
-import React, { ReactElement } from 'react';
-import styled from 'styled-components';
+import React, { ReactElement, useEffect } from 'react';
+import { ScriptProps, useScript } from '@marfeel/widget-providers-hooks';
+/* eslint-disable @typescript-eslint/camelcase */
 
-// eslint-disable-next-line @typescript-eslint/no-empty-interface
-export interface WidgetNameProps {}
+export interface MailerliteProps {
+	account: string;
+	form: string;
+	dataForm: string;
+}
 
-const Container = styled.div`
-	color: #fff;
-	font-family: "HelveticaNeue-Light", "Helvetica Neue Light", "Helvetica Neue", Helvetica, Arial, sans-serif;
-	font-size: 16px;
-	font-weight: 300;
-	padding: 2rem;
-	text-align: center;
-`;
+declare global {
+	interface Window {
+		ml: (accounts: string, account: string, forms: string, load: string) => void;
+		ml_account: void;
+	}
+}
 
-export default function WidgetName(props: WidgetNameProps): ReactElement {
+export default function MailerliteWidget({ account, form, dataForm }: MailerliteProps): ReactElement {
+	const scriptSrc: ScriptProps = { script: 'https://static.mailerlite.com/js/universal.js' };
+	const [scriptLoaded] = useScript([scriptSrc]);
+
+	useEffect(() => {
+		if (scriptLoaded) {
+			window.ml_account = window.ml('accounts', account, form, 'load');
+		}
+
+	}, [scriptLoaded]);
+
 	return (
-		<Container>
-			Touch Version of the Widget.
-		</Container>
+		<div
+			data-testid="mailerlite-form"
+			className="ml-form-embed"
+			data-account={ `${account}:${form}` }
+			data-form={ dataForm }
+		/>
 	);
 }
